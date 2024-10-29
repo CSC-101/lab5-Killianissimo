@@ -13,10 +13,26 @@ class Time:
         self.minute = minute
         self.second = second
 
+    '''this function is a property of the Time class that dictates what must be equal about two 
+    Time objects in order for them to be considered equal. It inputs 2 Times and outputs a bool.
+    '''
+    def __eq__(self, other:Any):
+        if ((type(other) == Time) and (other.hour == self.hour) and
+                (other.minute == self.minute) and (other.second == self.second)):
+            return True
+        else:
+            return False
+
 
     # Provide a developer-friendly string representation of the object.
     # input: Time for which a string representation is desired. 
     # output: string representation
+    '''This function is a property of the Time function and dictates what is returned when a bit 
+    of code tries to print a Time. It inputs a Time and outputs a string. 
+    '''
+    def __repr__(self):
+        return ("Hour: {}, Minute: {}, Second: {}"
+                .format(str(self.hour), str(self.minute), str(self.second)))
 
 
     # Compare the Time object with another value to determine equality.
